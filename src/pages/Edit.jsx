@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { purple } from '@mui/material/colors';
+import { baseurl } from '../api';
 export default function edit() {
   const {ExpenseId}=useParams();
   // console.log(params.ExpenseId)
@@ -17,7 +18,7 @@ export default function edit() {
   const [isloading, setIsLoading] = useState(false)
   const fetchsingleexpense=async()=>{
     try {
-      const res=await axios.get(`http://localhost:5000/api/expense/view/${ExpenseId}`);
+      const res=await axios.get(`${baseurl}/api/expense/view/${ExpenseId}`);
       console.log(res.data);
       if (res.data.success) {
         setFormData(res.data.expenseDeatails)
@@ -33,7 +34,7 @@ export default function edit() {
     //  console.log(formData)
     setIsLoading(true)
     try {
-      const res = await axios.put(`http://localhost:5000/api/expense/edit/${ExpenseId}`, formData)
+      const res = await axios.put(`${baseurl}/api/expense/edit/${ExpenseId}`, formData)
       // console.log(res)
       if (res.data.success) {
         toast.success(res.data.message);
