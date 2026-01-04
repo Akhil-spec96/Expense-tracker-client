@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Add from './pages/Add'
 import Edit from './pages/Edit'
 import Error from './pages/Error'
-import View from './pages/View.JSX'
+import View from './pages/View.jsx'
 import { ToastContainer, toast } from 'react-toastify';
 // import './App.css'
 
